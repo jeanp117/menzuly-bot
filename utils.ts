@@ -13,7 +13,9 @@ export function numberToEmoji(number) {
 }
 export function getPathImage(image: string) {
   let path = join(process.cwd(), "assets", image);
+  console.log(path);
   if (!existsSync(path)) {
+    console.log("No existe la imagen");
     path = join(process.cwd(), "assets", "default.jpg");
   }
   return path;
