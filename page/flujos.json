@@ -1,0 +1,442 @@
+[
+  {
+    "name": "confirmarContinuar",
+    "body": [
+      {
+        "text": " ¿Deseas consultar otra opción? 🤔\nEscríbeme *sí* para continuar o *no* para finalizar."
+      }
+    ],
+    "capture": true,
+    "options": [
+      {
+        "keywords": ["si", "sí", "claro", "por supuesto", "continuar"],
+        "goBack": true
+      },
+      {
+        "keywords": ["no", "nada", "gracias", "adios", "chao"],
+        "nextFlow": "despedida"
+      }
+    ]
+  },
+  {
+    "keywords": ["salir", "finalizar", "terminar", "cerrar", "adios", "chao"],
+    "name": "despedida",
+    "body": [
+      {
+        "text": "¡Gracias por contactarnos! Si tienes alguna otra pregunta, no dudes en escribirnos. ¡Hasta pronto! 👋"
+      }
+    ]
+  },
+  {
+    "keywords": ["asesor", "persona", "ayuda", "ayudame", "humano"],
+    "name": "asesor",
+    "body": [
+      {
+        "text": "Para contactar con un asesor, te invitamos a escribirnos al siguiente número de WhatsApp: 📲 3202539832"
+      }
+    ]
+  },
+  {
+    "keywords": ["_event_welcome_"],
+    "name": "bienvenida",
+    "body": [
+      {
+        "text": "Hola 👋, soy Zuly 👩‍🦰, la asistente virtual de Menzuly. ¿En qué puedo ayudarte hoy?",
+        "media": "bienvenida.jpg"
+      },
+      {
+        "text": "*Por favor, elige una opción para continuar*\n1️⃣ Parque acuático, Pescadero\n2️⃣ Restaurante Menzuly, km 10 vía Piedecuesta\n3️⃣ Restaurante Menzuly, Panachi\n4️⃣ Eventos 🎉\n5️⃣ Administrativo 📊",
+        "delay": 500
+      }
+    ],
+    "capture": true,
+    "options": [
+      {
+        "keywords": [
+          "1",
+          "uno",
+          "parque",
+          "parque acuatico",
+          "acuatico",
+          "pescadero"
+        ],
+        "nextFlow": "parqueAcuatico"
+      },
+      {
+        "keywords": ["2", "dos", "piedecuesta", "restaurante"],
+        "nextFlow": "piedecuesta"
+      },
+      {
+        "keywords": ["3", "tres", "panachi"],
+        "nextFlow": "panachi"
+      },
+      {
+        "keywords": ["4", "eventos", "cuatro"],
+        "nextFlow": "eventos"
+      },
+      {
+        "keywords": ["5", "administrativo", "cinco"],
+        "nextFlow": "administrativo"
+      }
+    ],
+    "fallBack": "No entendí tu respuesta, ¿puedes intentar de nuevo?"
+  },
+  {
+    "name": "parqueAcuatico",
+    "body": [
+      {
+        "text": "*Parque Acuático* 🐟\nElige una opción para continuar:\n1️⃣ *Ubicación y cómo llegar*\n2️⃣ *Horario*\n3️⃣ *Costo de entradas*\n4️⃣ *Pasadías*\n5️⃣ *Atracciones*\n6️⃣ *Menú*\n7️⃣ *Medios de pago*\n8️⃣ *Parqueadero*\n9️⃣ *Pet Friendly*\n🔟 *Eventos*",
+        "media": "sedes/parque_acuatico.jpg"
+      },
+      {
+        "text": "Si quieres volver al menú principal, escribe *volver*\nPara contactar con un asesor, escribe *asesor*"
+      }
+    ],
+    "capture": true,
+    "options": [
+      {
+        "keywords": ["1", "uno", "ubicación", "como"],
+        "response": [
+          {
+            "text": "*Ubicación y cómo llegar*\n\nNuestro Parque Acuático está ubicado en la vía a Pescadero\nAquí te dejo la ubicación en 🗺️ Google Maps:"
+          },
+          {
+            "text": "📍 https://maps.app.goo.gl/5kPUun8BKqdkAoJNA"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["2", "dos", "horario"],
+        "response": [
+          {
+            "text": "*Horario*\n            \nNuestro Parque Acuático está abierto de miércoles a domingo, incluyendo festivos, de 9:00 a.m. a 5:30 p.m."
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["3", "tres", "entradas", "costo", "precio"],
+        "response": [
+          {
+            "text": "*Costo de entradas*\n            \nAdultos: $12.000\nNiños: $6.000 (Estatura máxima de 1.40 m)\nBebés: Gratis\n\nCon la entrada tienes acceso a todas las atracciones del Parque Acuático"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["4", "cuatro", "pasadías", "pasadia"],
+        "response": [
+          {
+            "text": "*Pasadías*\n\n*Pasadía Adulto:* $49.000\n*Pasadía Niño:* $31.000\nIncluye: Acceso a todas las atracciones del Parque Acuático y las piscinas, refrigerio y almuerzo.\n\nPara conocer más detalles y comprar tu pasadía, visita nuestra página web:\n🔗 https://menzuly.com/pasadías"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["5", "cinco", "atracciones"],
+        "response": [
+          {
+            "text": "*Atracciones*\n            \nEn nuestro parue ofrecemos las siguientes atracciones:\nSuper Bowl\nRío Bravo\nPiscina con toboganes\nPiscina dinosaurio\nPiscina del barril\nAcuario"
+          },
+          {
+            "text": "Para conocerlas más a detalle, visita nuestra página web:\n🔗 https://menzuly.com/atracciones"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["6", "seis", "menu", "carta"],
+        "response": [
+          {
+            "text": "*Menú Parque Acuático*\n            \nConoce todos los platillos que podrás disfrutar en nuestro Parque Acuático en la página web:\n🔗 https://menzuly.com/menu"
+          }
+        ]
+      },
+      {
+        "keywords": ["7", "siete", "medios de pago", "pago"],
+        "response": [
+          {
+            "text": "*Medios de pago*\n\nEn el Parque Acuático aceptamos pagos en efectivo, tarjeta débito y crédito.\nPara compra de pasadías en la página web, puedes usar la pasarela de pagos con PSE"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["8", "ocho", "parqueadero", "parqueo"],
+        "response": [
+          {
+            "text": "*Parqueadero*\n            \nEn el parque acuático tenemos *parqueadero gratis* para todos nuestros visitantes 🚗✨"
+          }
+        ]
+      },
+      {
+        "keywords": ["9", "nueve", "pet", "mascotas", "pet friendly"],
+        "response": [
+          {
+            "text": "*Pet Friendly*\n\nEn el Parque Acuático de Menzuly, ¡tus mascotas son bienvenidas! 🐶🐱\nSólo debes asegurarte de llevarlos con correa, bozal y recoger sus desechos."
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["10", "diez", "eventos"],
+        "response": [
+          {
+            "text": "*Eventos*\n            \nSi estás pensando en llevar un grupo familiar o de amigos para celebrar un evento en nuestro Parque Acuático, te invitamos a contactar con nuestro asesor comercial:\n🔗 http://wa.me/573202539832"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["asesor", "persona"],
+        "nextFlow": "asesor"
+      },
+      {
+        "keywords": ["volver", "atras", "devolverse", "inicio"],
+        "nextFlow": "bienvenida"
+      }
+    ]
+  },
+  {
+    "name": "piedecuesta",
+    "body": [
+      {
+        "text": "*Restaurante Piedecuesta* 🍽️ km 10 vía Piedecuesta\nElige una opción para continuar:\n1️⃣ *Ubicación y cómo llegar*\n2️⃣ *Horario*\n3️⃣ *Menú*\n4️⃣ *Domicilios*\n5️⃣ *Medios de pago*\n6️⃣ *Parqueadero*\n7️⃣ *Pet Friendly*\n8️⃣ *Eventos*\n9️⃣ *Reservas* \n",
+        "media": "sedes/piedecuesta.jpg"
+      },
+      {
+        "text": "Si quieres volver al menú principal, escribe *volver*\nPara contactar con un asesor, escribe *asesor*",
+        "delay": 1500
+      }
+    ],
+    "capture": true,
+    "options": [
+      {
+        "keywords": ["1", "uno", "ubicación", "como"],
+        "response": [
+          {
+            "text": "*Ubicación y cómo llegar*\n            \nEl restaurante de Piedecuesta está ubicado en el *km 10 vía Piedecuesta*\nAquí te dejo la ubicación en 🗺️ Google Maps:"
+          },
+          {
+            "text": "📍 https://maps.app.goo.gl/ZhsGaTvuGN78A6ym6"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["2", "dos", "horario"],
+        "response": [
+          {
+            "text": "*Horario*\n            \nEl horario del restaurante de Piedecuesta es de *11:00 a.m. a 5:30 p.m.* todos los días."
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["3", "tres", "menu", "carta"],
+        "response": [
+          {
+            "text": "*Menú*\n            \nConoce nuestro menú en la página web:\n🔗 https://menzuly.com/menu"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["4", "cuatro", "domicilios"],
+        "response": [
+          {
+            "text": "*Domicilios*\n            \nDisfruta de nuestros platos en la comodidad de tu hogar. Pide tu domicilio en nuestra página web: 🔗 https://menzuly.com/domicilios o llama al 3203393507"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["5", "cinco", "medios de pago", "pago"],
+        "response": [
+          {
+            "text": "*Medios de pago*\n            \nAceptamos pagos en 💵 efectivo, 💳 tarjeta débito y crédito en nuestro restaurante.\nPara compras en la página web puedes usar la pasarela de pagos con PSE"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["6", "seis", "parqueadero", "parqueo"],
+        "response": [
+          {
+            "text": "*Parqueadero*\n            \nEn el Restaurante Piedecuesta tenemos *parqueadero gratis* ✨ para todos nuestros clientes"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": [
+          "7",
+          "siete",
+          "Pet Friendly",
+          "mascotas",
+          "pet",
+          "perros",
+          "animales"
+        ],
+        "response": [
+          {
+            "text": "*Pet Friendly*\n            \nEn el restaurante de Piedecuesta, ¡tus mascotas son bienvenidas! 🐶🐱\nSólo debes asegurarte de llevarlos con correa, mantenerlos en la zona Pet friendly y recoger sus desechos."
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["8", "ocho", "Eventos"],
+        "response": [
+          {
+            "text": "*Eventos*\n\nSi quieres celebrar un evento en el restaurante de Piedecuesta, contacta a nuestro asesor comercial en el siguiente enlace:\n🔗 http://wa.me/573202539832"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["9", "nueve", "reservas"],
+        "response": [
+          {
+            "text": "*Reservas*\n            \nPara reservar una mesa en el restaurante de Piedecuesta, puedes hacerlo a través de nuestra página web o en los teléfonos 3203393507 o 3172289456\n🔗 https://menzuly.com/reservas"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["asesor", "persona"],
+        "nextFlow": "asesor"
+      },
+      {
+        "keywords": ["volver", "atras", "devolverse", "inicio"],
+        "nextFlow": "bienvenida"
+      },
+      {
+        "keywords": ["asesor", "persona"],
+        "nextFlow": "asesor"
+      }
+    ]
+  },
+  {
+    "name": "panachi",
+    "body": [
+      {
+        "text": "*Restaurante Sede Panachi* 🍽️\nElige una opción para continuar:\n1️⃣ *Ubicación y cómo llegar*\n2️⃣ *Horario*\n3️⃣ *Menú*\n4️⃣ *Medios de pago*\n5️⃣ *Parqueadero*\n6️⃣ *Pet Friendly*\n",
+        "media": "sedes/panachi.jpg"
+      },
+      {
+        "text": "Si quieres volver al menú principal, escribe *volver*\nPara contactar con un asesor, escribe *asesor*",
+        "delay": 1500
+      }
+    ],
+    "capture": true,
+    "options": [
+      {
+        "keywords": ["1", "uno", "ubicación", "como llegar"],
+        "response": [
+          {
+            "text": "*Ubicación y cómo llegar*\n            \nEl restaurante Menzuly sede Panachi está ubicado dentro del Parque Nacional del Chicamocha, en el municipio de Aratoca, Santander.\nAquí te dejo la ubicación del Parque en 🗺️ Google Maps:"
+          },
+          {
+            "text": "📍 https://maps.app.goo.gl/fGetK1e9G7LJivbj9"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["2", "dos", "horario"],
+        "response": [
+          {
+            "text": "*Horario*\n\nEl horario de nuestro restaurante en Panachi está sujeto al horario del Parque.\nTe invitamos a consultarlo en la página web del Parque Nacional del Chicamocha.\n\n🔗 https://parquesdesantander.com/parques/parque-nacional-del-chicamocha/"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["3", "tres", "menu"],
+        "response": [
+          {
+            "text": "*Menú*\n\nConoce nuestro menú de la sede Panachi en la página web:\n🔗 https://menzuly.com/menu-panachi"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["4", "cuatro", "medios de pago", "pago"],
+        "response": [
+          {
+            "text": "*Medios de pago*\n\nAceptamos pagos en efectivo, tarjeta débito y crédito en nuestro restaurante de Panachi."
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["5", "cinco", "parqueadero", "parqueo"],
+        "response": [
+          {
+            "text": "*Parqueadero*\n\nEl parqueadero en la sede Panachi es gratis, pero su disponibilidad está sujeta a la capacidad del Parque Nacional del Chicamocha."
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["6", "seis", "mascotas", "pet", "perros", "animales"],
+        "response": [
+          {
+            "text": "*Pet Friendly*\n\nEn nuestra sede Panachi estamos encantados de recibir a tus mascotas. 🐶🐱 \nSin embargo, estamos sujetos a las normas del Parque Nacional del Chicamocha. Te inivtamos a consultarlas en la página web del Parque.\n🔗 https://parquesdesantander.com/parques/parque-nacional-del-chicamocha/"
+          }
+        ],
+        "nextFlow": "confirmarContinuar"
+      },
+      {
+        "keywords": ["asesor", "persona"],
+        "nextFlow": "asesor"
+      },
+      {
+        "keywords": ["volver", "atras", "devolverse", "inicio"],
+        "nextFlow": "bienvenida"
+      },
+      {
+        "keywords": ["asesor", "persona"],
+        "nextFlow": "asesor"
+      }
+    ]
+  },
+  {
+    "name": "eventos",
+    "body": [
+      {
+        "text": "*Eventos Menzuly* 🎉\n\nTienes un evento y quieres celebrarlo en nuestro restaurante, te invitamos a contactar con nuestro asesor comercial para conocer más sobre nuestros paquetes y servicios para eventos. \n🔗 http://wa.me/573202539832"
+      },
+      {
+        "text": "Si quieres volver al menú principal, escribe *volver*."
+      }
+    ],
+    "capture": true,
+    "options": [
+      {
+        "keywords": ["volver", "atras", "devolverse", "inicio"],
+        "nextFlow": "bienvenida"
+      }
+    ]
+  },
+  {
+    "name": "administrativo",
+    "body": [
+      {
+        "text": "*Información Administrativa*\n\nSi necesitas información relacionada con facturación, gerencia u otra área, te invitamos a contactar nuestra línea administrativa\n\n🔗 http://wa.me/573202539832"
+      },
+      {
+        "text": "Si quieres volver al menú principal, escribe *volver*."
+      }
+    ],
+    "capture": true,
+    "options": [
+      {
+        "keywords": ["volver", "atras", "devolverse", "inicio", "menu"],
+        "nextFlow": "bienvenida"
+      }
+    ]
+  }
+]

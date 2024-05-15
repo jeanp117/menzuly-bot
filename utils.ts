@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { join } from "node:path";
+import path from "path";
 
 export function numberToEmoji(number) {
   let emojis = ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"];
@@ -12,11 +12,7 @@ export function numberToEmoji(number) {
   return result;
 }
 export function getPathImage(image: string) {
-  let path = join(process.cwd(), "assets", image);
-  console.log(path);
-  if (!existsSync(path)) {
-    console.log("No existe la imagen");
-    path = join(process.cwd(), "assets", "default.jpg");
-  }
-  return path;
+  const basePath = path.resolve(__dirname, "assets");
+  const imagePath = path.resolve(basePath, image);
+  return imagePath;
 }
