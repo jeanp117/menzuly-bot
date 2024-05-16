@@ -10,18 +10,27 @@ const {
   EVENTS,
 } = require("@bot-whatsapp/bot");
 
-//read flujos from a json file
-const Flujos: Flow[] = require("./flujos.json");
-
 const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
+const config = require("./config.json");
 let flujosIndice = {};
 let flujosKeywords: Set<string> = new Set();
+let flujosArray: Flow[] = [];
+fetch(config.FLUJOS_URL as string)
+  .then((response) => response.json())
+  .then((data: Flow[]) => {
+    flujosArray = data;
+    console.log(flujosArray.length + " Flujos cargados correctamente");
+    console.log(flujosArray.map((flow) => flow.name));
+  })
+  .catch((error) => {
+    throw new Error("No se pudo cargar los flujos");
+  });
 
-let flujosArray = Flujos.map((flow) => {
+flujosArray.map((flow) => {
   if (flow.keywords)
     Array.from(flow.keywords).forEach((keyword) => flujosKeywords.add(keyword));
 
